@@ -72,6 +72,7 @@ the returned time may have drifted if the status is timeNeedsSync.
 ```c
 setSyncProvider(getTimeFunction);  // set the external time provider
 setSyncInterval(interval);         // set the number of seconds between re-sync
+setAdjustFunction(getAdjustFunction); // set the external adjust function
 ```
 
 There are many convenience macros in the `time.h` file for time constants and conversion
@@ -136,6 +137,7 @@ The internal time can be automatically synchronized at regular intervals to an e
 This is enabled by calling the `setSyncProvider(provider)` function - the provider argument is
 the address of a function that returns the current time as a `time_t`.
 See the sketches in the examples directory for usage.
+If an external adjust function in setted, the time offset is adjusted on every time synchronization.
 
 The default interval for re-syncing the time is 5 minutes but can be changed by calling the
 `setSyncInterval(interval)` method to set the number of seconds between re-sync attempts.
