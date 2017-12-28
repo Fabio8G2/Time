@@ -131,7 +131,7 @@ char* dayShortStr(uint8_t day);
 	
 /* time sync functions	*/
 timeStatus_t timeStatus(); // indicates if time has been set and recently synchronized
-void    setSyncProvider( getExternalTime getTimeFunction); // identify the external time provider
+void    setSyncProvider( getExternalTime getTimeFunction; bool behave); // identify the external time provider
 void    setSyncInterval(time_t interval); // set the number of seconds between re-sync
 void	setAdjustFunction( getExternalAdjust AdjustFunction); //identify the external asjust function
 
