@@ -315,10 +315,12 @@ timeStatus_t timeStatus() {
   return Status;
 }
 
-void setSyncProvider( getExternalTime getTimeFunction){
+void setSyncProvider( getExternalTime getTimeFunction, bool behave){
   getTimePtr = getTimeFunction;  
-  nextSyncTime = sysTime;
-  now(); // this will sync the clock
+  if(behave){
+    nextSyncTime = sysTime;
+    now(); // this will sync the clock
+  }	  
 }
 
 void setSyncInterval(time_t interval){ // set the number of seconds between re-sync
